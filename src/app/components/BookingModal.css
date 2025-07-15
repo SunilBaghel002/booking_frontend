@@ -1,0 +1,410 @@
+/* BookingModal.css */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.modal.show {
+  transform: translateX(0);
+  animation: slideInRight 0.3s ease forwards;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #1f2a44;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-close:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.seat-booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+  flex: 1;
+}
+
+.seat-booking-section {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e4dddd;
+  padding-bottom: 15px;
+}
+
+.seat-booking-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1f2a44;
+  font-weight: 700;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 1.25rem;
+  margin-top: 8px;
+}
+
+.input-label {
+  position: absolute;
+  top: -0.4rem;
+  left: 0.8rem;
+  background: #ffffff;
+  color: #8f460a;
+  padding: 0 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.input-field {
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  width: 100%;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.input-field:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 6px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.input-field:focus {
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 1px #4d4a48;
+  transform: translateY(-2px);
+}
+
+.input-field:placeholder-shown + .input-label {
+  top: 0.6rem;
+  left: 0.8rem;
+  font-size: 0.9rem;
+  color: #97999c;
+}
+
+.input-error {
+  border: 1px solid #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.3);
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  padding: 4px 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+  animation: fadeIn 0.3s ease;
+  display: none;
+}
+
+.error-text.active {
+  display: block;
+}
+
+.submit-btn {
+  background: #0c7ff2;
+  color: #ffffff;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: none;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.015em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  max-width: 480px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #0a6cd6;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.submit-btn:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.cancel-btn {
+  background: linear-gradient(to right, #fa2609, #fa2609);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background: linear-gradient(to right, #b82916, #b11905);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 6px rgba(220, 38, 38, 0.4);
+}
+
+.book-btn {
+  background: linear-gradient(to right, #26dc4e, #1cb929);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease, transform 0.2s ease,
+    background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.book-btn:hover:not(:disabled) {
+  background: linear-gradient(to right, #16b83f, #05b147);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 6px rgba(38, 220, 78, 0.4);
+}
+
+.book-btn:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.book-btn:focus,
+.cancel-btn:focus,
+.submit-btn:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ffffff;
+  border-top: 2px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-bottom: 16px;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+  .modal {
+    max-width: 100%;
+    padding: 1.5rem;
+    max-height: 90vh;
+    top: auto;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+
+  .modal.show {
+    transform: translateY(0);
+    animation: slideInTop 0.6s ease forwards;
+  }
+
+  .seat-booking-form {
+    gap: 12px;
+  }
+
+  .seat-booking-section h4 {
+    font-size: 16px;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+  }
+
+  .input-label {
+    font-size: 0.75rem;
+    top: -0.3rem;
+    left: 0.6rem;
+  }
+
+  .input-field {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .input-field:placeholder-shown + .input-label {
+    top: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .error-text {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
+
+  .submit-btn,
+  .cancel-btn,
+  .book-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    height: 36px;
+  }
+
+  .spinner {
+    width: 14px;
+    height: 14px;
+  }
+
+  .button-group {
+    padding-bottom: 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .modal {
+    padding: 1rem;
+    max-height: 85vh;
+  }
+
+  .seat-booking-form {
+    gap: 10px;
+  }
+
+  .seat-booking-section h4 {
+    font-size: 14px;
+  }
+
+  .input-group {
+    margin-bottom: 0.8rem;
+  }
+
+  .input-label {
+    font-size: 0.7rem;
+    top: -0.3rem;
+    left: 0.6rem;
+  }
+
+  .input-field {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .input-field:placeholder-shown + .input-label {
+    top: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .error-text {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+  }
+
+  .submit-btn,
+  .cancel-btn,
+  .book-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    height: 32px;
+  }
+
+  .spinner {
+    width: 12px;
+    height: 12px;
+  }
+
+  .button-group {
+    padding-bottom: 10px;
+  }
+}

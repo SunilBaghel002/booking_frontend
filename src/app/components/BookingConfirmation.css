@@ -1,0 +1,235 @@
+/* components/BookingConfirmation.css */
+@import url("https://fonts.googleapis.com/css2?family=Port+Lligat+Slab&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.booking-confirmation-wrapper {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  font-family: "Port Lligat Slab", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-confirmation-header {
+  width: 100%;
+  background-color: #1f2a44; /* Match BookingModal.css */
+  color: white;
+  padding: 1.5rem;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.booking-confirmation-header h1 {
+  font-size: 1.5rem; /* Slightly larger for prominence */
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.booking-confirmation-main {
+  max-width: 64rem;
+  width: 100%;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 2rem auto;
+}
+
+.success-message,
+.error-message,
+.loading-message {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.success-icon {
+  display: inline-block;
+  background-color: #26dc4e; /* Match BookingModal.css green */
+  border-radius: 50%;
+  padding: 0.75rem;
+}
+
+.success-icon .material-icons {
+  font-size: 40px;
+  color: white;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-message h2,
+.error-message h2 {
+  font-size: 1.75rem; /* Larger for emphasis */
+  font-weight: 700;
+  color: #26dc4e; /* Match BookingModal.css */
+  margin-top: 1rem;
+}
+
+.error-message h2 {
+  color: #ef4444; /* Match BookingModal.css error red */
+}
+
+.success-message p,
+.error-message p,
+.loading-message p {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.loading-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ffffff;
+  border-top: 3px solid #2563eb; /* Match BookingModal.css */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.booking-details-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 1rem;
+}
+
+.event-info h3 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2a44; /* Match BookingModal.css */
+}
+
+.event-info p {
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.seat-info {
+  text-align: right;
+}
+
+.seat-info p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.seat-info .seat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2563eb; /* Match BookingModal.css */
+}
+
+.divider {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.dashed-line {
+  border-top: 2px dashed #d1d5db;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.divider-circles {
+  display: flex;
+  justify-content: space-between;
+}
+
+.circle {
+  width: 1rem;
+  height: 1rem;
+  background-color: #1f2a44; /* Match header */
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.booking-info-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .booking-info-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  .booking-info-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for desktops */
+  }
+}
+
+.booking-info-grid .label {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.booking-info-grid .value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2a44; /* Match BookingModal.css */
+}
+
+.action-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.action-section button,
+.error-message button {
+  background-color: #2563eb; /* Match BookingModal.css */
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.action-section button:hover,
+.error-message button:hover {
+  background-color: #1d4ed8; /* Darker shade */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.action-section button:focus,
+.error-message button:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
