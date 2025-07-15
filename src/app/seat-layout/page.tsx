@@ -47,7 +47,7 @@ function SeatLayout() {
     const fetchEvents = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("https://bookingapi.mbactingschool.com/api/events", {
+        const response = await fetch("https://booking-backend-ecru.vercel.app/api/events", {
           cache: "no-store",
           credentials: "include",
         });
