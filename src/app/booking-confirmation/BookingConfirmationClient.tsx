@@ -28,7 +28,7 @@ async function getEventDetails(eventId: string): Promise<EventDetails> {
   if (!eventId || !/^[0-9a-fA-F]{24}$/.test(eventId)) {
     throw new Error(`Invalid eventId format: ${eventId}`);
   }
-  const res = await fetch(`http://localhost:5000/api/events/${eventId}`, {
+  const res = await fetch(`https://booking-backend-ecru.vercel.app/api/events/${eventId}`, {
     cache: "no-store",
     credentials: "include",
   });
@@ -62,7 +62,7 @@ async function getSeatDetails(
   }
 
   const res = await fetch(
-    `http://localhost:5000/api/seats/by-ids?seatIds=${seatIds.join(
+    `https://booking-backend-ecru.vercel.app/api/seats/by-ids?seatIds=${seatIds.join(
       ","
     )}&date=${bookingDate}`,
     { cache: "no-store", credentials: "include" }

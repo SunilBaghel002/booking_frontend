@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/auth/me", {
+      const res = await axios.get("https://booking-backend-ecru.vercel.app/api/auth/me", {
         withCredentials: true,
       });
       console.log("Fetch user response:", {
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (email: string, password: string) => {
     try {
       const res = await axios.post(
-        "https://bookingapi.mbactingschool.com/api/auth/login",
+        "https://booking-backend-ecru.vercel.app/api/auth/login",
         { email, password },
         { withCredentials: true }
       );
@@ -93,7 +93,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = async () => {
     try {
       await axios.post(
-        "https://bookingapi.mbactingschool.com/api/auth/logout",
+        "https://booking-backend-ecru.vercel.app/api/auth/logout",
         {},
         { withCredentials: true }
       );
@@ -121,7 +121,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   ) => {
     try {
       const res = await axios.post(
-        "https://bookingapi.mbactingschool.com/api/seats/book",
+        "https://booking-backend-ecru.vercel.app/api/seats/book",
         { seatIds, name, email, phone, bookingDate, eventId },
         { withCredentials: true }
       );
@@ -144,7 +144,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const checkAdmin = async (): Promise<boolean> => {
     try {
-      const res = await axios.get("https://bookingapi.mbactingschool.com/api/auth/is-admin", {
+      const res = await axios.get("https://booking-backend-ecru.vercel.app/api/auth/is-admin", {
         withCredentials: true,
       });
       console.log("Check admin response:", {

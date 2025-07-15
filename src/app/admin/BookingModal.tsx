@@ -141,7 +141,7 @@ export default function BookingModal({
     setIsSubmitting(true);
     try {
       const response = await axios.post(
-        "https://bookingapi.mbactingschool.com/api/seats/book",
+        "https://booking-backend-ecru.vercel.app/api/seats/book",
         { eventId, bookings },
         { withCredentials: true }
       );

@@ -79,7 +79,7 @@ function SeatLayout() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://bookingapi.mbactingschool.com/api/seats?date=${date}`,
+        `https://booking-backend-ecru.vercel.app/api/seats?date=${date}`,
         { cache: "no-store", credentials: "include" }
       );
       if (!response.ok) {

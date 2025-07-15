@@ -17,7 +17,7 @@ const RegisterPage: React.FC = () => {
     setError("");
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://bookingapi.mbactingschool.com/api/auth/register', {
+      const response = await fetch('https://booking-backend-ecru.vercel.app/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -43,7 +43,7 @@ const RegisterPage: React.FC = () => {
     setError("");
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://bookingapi.mbactingschool.com/api/auth/verify-otp', {
+      const response = await fetch('https://booking-backend-ecru.vercel.app/api/auth/verify-otp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

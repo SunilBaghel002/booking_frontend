@@ -81,7 +81,7 @@ function Admin() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("https://bookingapi.mbactingschool.com/api/events", {
+      const response = await axios.get("https://booking-backend-ecru.vercel.app/api/events", {
         withCredentials: true,
       });
       console.log("Fetch events response:", {
@@ -121,7 +121,7 @@ function Admin() {
   const fetchPreviousEvents = async () => {
     try {
       const response = await axios.get(
-        "https://bookingapi.mbactingschool.com/api/events/past",
+        "hhttps://booking-backend-ecru.vercel.app/api/events/past",
         {
           withCredentials: true,
         }
@@ -132,7 +132,7 @@ function Admin() {
       for (const event of prevEvents) {
         try {
           const bookingResponse = await axios.get(
-            `https://bookingapi.mbactingschool.com/api/events/${event._id}/bookings`,
+            `https://booking-backend-ecru.vercel.app/api/events/${event._id}/bookings`,
             { withCredentials: true }
           );
           bookingsData[event._id] = bookingResponse.data;
@@ -327,7 +327,7 @@ function Admin() {
         totalSeats: Number(formData.totalSeats),
       });
       const response = await axios.post(
-        "https://bookingapi.mbactingschool.com/api/events",
+        "https://booking-backend-ecru.vercel.app/api/events",
         {
           ...formData,
           totalSeats: Number(formData.totalSeats),
@@ -399,7 +399,7 @@ function Admin() {
     setActionLoading((prev) => ({ ...prev, [eventId]: true }));
     try {
       const response = await axios.post(
-        `https://bookingapi.mbactingschool.com/api/events/${eventId}/end-registration`,
+        `https://booking-backend-ecru.vercel.app/api/events/${eventId}/end-registration`,
         {},
         { withCredentials: true }
       );
@@ -446,7 +446,7 @@ function Admin() {
         passwordLength: password.length,
       });
       const response = await axios.delete(
-        `https://bookingapi.mbactingschool.com/api/events/${eventId}`,
+        `https://booking-backend-ecru.vercel.app/api/events/${eventId}`,
         {
           data: { password },
           withCredentials: true,

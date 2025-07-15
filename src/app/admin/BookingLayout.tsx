@@ -30,7 +30,7 @@ function BookingLayout() {
     const fetchEvents = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch("https://bookingapi.mbactingschool.com/api/events", {
+        const res = await fetch("https://booking-backend-ecru.vercel.app/api/events", {
           cache: "no-store",
           credentials: "include",
         });
@@ -53,7 +53,7 @@ function BookingLayout() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("https://bookingapi.mbactingschool.com/api/auth/logout", {
+      const response = await fetch("https://booking-backend-ecru.vercel.app/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });
